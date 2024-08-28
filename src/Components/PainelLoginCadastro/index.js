@@ -2,23 +2,24 @@ import React from "react"
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import Logo from "../../assets/images/logo.png"
 
 function PainelLoginCadastro() {
 
     return (
 
-        <div>
+        <Box>
 
             <TextField id="outlined-basic" label="Outlined" variant="outlined" />
-            <TextField id="filled-basic" label="Filled" variant="filled" />
-            <TextField id="standard-basic" label="Standard" variant="standard" />
+            <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+
 
 
             <Button variant="contained" disableElevation>
                 Disable elevation
             </Button>
 
-        </div>
+        </Box>
 
 
 
@@ -27,4 +28,5 @@ function PainelLoginCadastro() {
 
 }
 
-export default PainelLoginCadastro; 
+export default PainelLoginCadastro;
+
