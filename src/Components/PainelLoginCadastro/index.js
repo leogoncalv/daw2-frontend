@@ -10,13 +10,13 @@ function PainelLoginCadastro() {
 
         <Box>
 
-            <TextField id="outlined-basic" label="Outlined" variant="outlined" />
-            <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+            <TextField id="outlined-basic" label="E-mail" variant="outlined" />
+            <TextField id="outlined-basic" label="Senha" variant="outlined" />
 
 
 
             <Button variant="contained" disableElevation>
-                Disable elevation
+                Entrar
             </Button>
 
         </Box>

@@ -12,12 +12,13 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import Logo from "../../assets/images/logo.png"
 
 const pages = ['Início', 'Categorias', 'Favoritos'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-function  NavBar (){
-    
+function NavBar() {
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -36,9 +37,9 @@ function  NavBar (){
     setAnchorElUser(null);
   };
 
-    return (
-        
-        <AppBar position="static">
+  return (
+
+    <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -120,7 +121,7 @@ function  NavBar (){
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: 'black', display: 'block' }}
               >
                 {page}
               </Button>
@@ -159,9 +160,9 @@ function  NavBar (){
         </Toolbar>
       </Container>
     </AppBar>
-        
-      
-    ); 
+
+
+  );
 
 
 }
