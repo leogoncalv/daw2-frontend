@@ -6,7 +6,7 @@ function  Usuario (){
         
         <div>
            
-           Usuario
+        
            
         </div>
         

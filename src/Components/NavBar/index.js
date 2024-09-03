@@ -12,7 +12,9 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+
 import Logo from "../../assets/images/logo.png"
+import Fundo1 from "../../assets/images/macarrão background.jpg"
 
 const pages = ['Início', 'Categorias', 'Favoritos'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -58,6 +60,8 @@ function NavBar() {
               textDecoration: 'none',
             }}
           >
+
+
             LOGO
           </Typography>
 
@@ -150,6 +154,7 @@ function NavBar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
+
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>

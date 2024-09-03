@@ -1,18 +1,18 @@
 import React from "react"
 
-function  Receita (){
+function Receita() {
 
     return (
-        
-        <div>
-           
-         Receita
-           
-        </div>
-        
-        
 
-    ); 
+        <div>
+
+            Receita
+
+        </div>
+
+
+
+    );
 
 
 }
