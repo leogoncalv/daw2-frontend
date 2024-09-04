@@ -47,7 +47,8 @@ function PaginaLogin() {
                             backgroundRepeat: 'no-repeat',
                             backgroundSize: 'contain',
                             backgroundPosition: 'center',
-                            paddingTop: '80%'
+                            paddingTop: '80%',
+
                         }}
                     />
 
@@ -80,9 +81,13 @@ function PaginaLogin() {
                             sx={{
                                 mt: 3,
                                 mb: 2
+
                             }}
                         >
+
                             Entrar
+
+
                         </Button>
                         <Grid container>
                             <Grid item xs>
@@ -93,6 +98,7 @@ function PaginaLogin() {
                             <Grid item>
                                 <Link href="#" variant="body2">
                                     Cadastrar
+
 
 
 

@@ -1,5 +1,8 @@
 
 import React from "react";
+import { Grid } from "@mui/material";
+
+import Fundo from "../../assets/images/comida.jpg"
 
 function ImagemPrincipal({ children }) {
     return (
@@ -11,12 +14,13 @@ function ImagemPrincipal({ children }) {
                 md={12}
                 className="='image"
                 sx={{
-                    backgroundImage: `url(${FinancaImagem})`,
+                    backgroundImage: `url(${Fundo})`,
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: "cover",
                     backgroundPosition: 'center'
                 }}
             >
+
                 {children}
             </Grid>
         </Grid>

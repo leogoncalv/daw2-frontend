@@ -1,4 +1,5 @@
 import React from "react"
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,13 +14,17 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
-import Logo from "../../assets/images/logo.png"
-import Fundo1 from "../../assets/images/macarrão background.jpg"
+
+import { useNavigate } from "react-router-dom";
+
+import "./style.css"
 
 const pages = ['Início', 'Categorias', 'Favoritos'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function NavBar() {
+
+  const navigate = useNavigate();
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -33,10 +38,14 @@ function NavBar() {
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
+
   };
 
-  const handleCloseUserMenu = () => {
+  const handleCloseUserMenu = (tipo) => {
     setAnchorElUser(null);
+    if (tipo === "Logout") {
+      navigate("/login");
+    }
   };
 
   return (
@@ -156,7 +165,7 @@ function NavBar() {
             >
 
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem key={setting} onClick={() => { handleCloseUserMenu(setting) }}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
