@@ -1,5 +1,4 @@
 import React from "react";
-
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -8,12 +7,9 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-import Figura from "../../assets/images/mascote.png"
-
+import Figura from "../../assets/images/mascote.png";
 
 const defaultTheme = createTheme();
-
 
 function PaginaCadastro() {
 
@@ -39,7 +35,6 @@ function PaginaCadastro() {
                     }}
                 >
                     <Box
-
                         sx={{
                             width: '100%',
                             height: 'auto',
@@ -51,9 +46,7 @@ function PaginaCadastro() {
                         }}
                     />
 
-
-
-                    < Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+                    <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                         <TextField
                             margin="normal"
                             required
@@ -90,7 +83,11 @@ function PaginaCadastro() {
                             variant="contained"
                             sx={{
                                 mt: 3,
-                                mb: 2
+                                mb: 2,
+                                backgroundColor: '#F2BE5C', // Cor de fundo do botão
+                                '&:hover': {
+                                    backgroundColor: '#F2A13C', // Cor ao passar o mouse
+                                }
                             }}
                         >
                             Cadastrar
@@ -110,13 +107,8 @@ function PaginaCadastro() {
                     </Box>
                 </Box>
             </Container>
-        </ThemeProvider >
-
-
-
+        </ThemeProvider>
     );
-
-
 }
 
-export default PaginaCadastro; 
+export default PaginaCadastro;
