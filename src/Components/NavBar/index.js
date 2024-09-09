@@ -1,5 +1,4 @@
-import React from "react"
-
+import React from "react";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,11 +12,8 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-
-
 import { useNavigate } from "react-router-dom";
-
-import "./style.css"
+import "./style.css";
 
 const pages = ['Início', 'Categorias', 'Favoritos'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -32,13 +28,13 @@ function NavBar() {
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
+
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
-
   };
 
   const handleCloseUserMenu = (tipo) => {
@@ -49,8 +45,7 @@ function NavBar() {
   };
 
   return (
-
-    <AppBar position="static">
+    <AppBar position="static" sx={{ backgroundColor: '#F2E0C9' }}> {/* Alterado para a cor #F2E0C9 */}
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -69,8 +64,6 @@ function NavBar() {
               textDecoration: 'none',
             }}
           >
-
-
             LOGO
           </Typography>
 
@@ -163,7 +156,6 @@ function NavBar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={() => { handleCloseUserMenu(setting) }}>
                   <Typography textAlign="center">{setting}</Typography>
@@ -174,11 +166,7 @@ function NavBar() {
         </Toolbar>
       </Container>
     </AppBar>
-
-
   );
-
-
 }
 
-export default NavBar; 
+export default NavBar;
