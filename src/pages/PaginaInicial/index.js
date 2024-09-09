@@ -1,18 +1,24 @@
 import React from "react"
-import NavBar from "../../Components/NavBar";
 
-function  PaginaInicial (){
+import ImagemPrincipal from "../../Components/ImagemPrincipal";
+import BarraNavegacao from "../../Components/NavBar";
+import BoxPrincipal1 from "../../Components/ImagemPrincipal";
+import { Box } from "@mui/material";
+
+
+function PaginaInicial() {
 
     return (
-       
-       <div>
-               <NavBar/>
-           
-       </div>
-        
-        
+        <Box>
 
-    ); 
+            <BarraNavegacao />
+            <ImagemPrincipal>
+                <BoxPrincipal1 />
+
+
+            </ImagemPrincipal>
+        </Box>
+    );
 
 
 }

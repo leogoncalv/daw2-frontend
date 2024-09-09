@@ -1,5 +1,4 @@
-import React from "react"
-
+import React from "react";
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -8,9 +7,7 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-import Logo from "../../assets/images/logo.png"
-
+import Logo from "../../assets/images/logo.png";
 
 const defaultTheme = createTheme();
 
@@ -26,7 +23,6 @@ function PaginaLogin() {
     };
 
     return (
-
         <ThemeProvider theme={defaultTheme}>
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
@@ -39,7 +35,6 @@ function PaginaLogin() {
                     }}
                 >
                     <Box
-
                         sx={{
                             width: '100%',
                             height: 'auto',
@@ -47,10 +42,9 @@ function PaginaLogin() {
                             backgroundRepeat: 'no-repeat',
                             backgroundSize: 'contain',
                             backgroundPosition: 'center',
-                            paddingTop: '80%'
+                            paddingTop: '80%',
                         }}
                     />
-
                     <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                         <TextField
                             margin="normal"
@@ -72,30 +66,38 @@ function PaginaLogin() {
                             id="password"
                             autoComplete="current-password"
                         />
-
                         <Button
                             type="submit"
                             fullWidth
                             variant="contained"
                             sx={{
                                 mt: 3,
-                                mb: 2
+                                mb: 2,
+                                backgroundColor: '#F2BE5C',
+                                '&:hover': {
+                                    backgroundColor: '#F2A13C',
+                                },
                             }}
                         >
                             Entrar
                         </Button>
-                        <Grid container>
+                        <Grid container spacing={2}>
                             <Grid item xs>
-                                <Link href="#" variant="body2">
+                                <Link
+                                    href="#"
+                                    variant="body2"
+                                    sx={{ color: '#000000', textDecoration: 'none' }}
+                                >
                                     Esqueceu a senha?
                                 </Link>
                             </Grid>
                             <Grid item>
-                                <Link href="#" variant="body2">
+                                <Link
+                                    href="#"
+                                    variant="body2"
+                                    sx={{ color: '#000000', textDecoration: 'none' }}
+                                >
                                     Cadastrar
-
-
-
                                 </Link>
                             </Grid>
                         </Grid>
@@ -103,13 +105,7 @@ function PaginaLogin() {
                 </Box>
             </Container>
         </ThemeProvider>
-
-
-
-
     );
-
-
 }
 
-export default PaginaLogin; 
+export default PaginaLogin;
