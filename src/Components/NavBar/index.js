@@ -15,6 +15,8 @@ import AdbIcon from '@mui/icons-material/Adb';
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 
+import Logo from "../../assets/images/logo.png"
+
 const pages = ['Início', 'Categorias', 'Favoritos'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -45,27 +47,20 @@ function NavBar() {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: '#F2E0C9' }}> {/* Alterado para a cor #F2E0C9 */}
+    <AppBar position="static" sx={{ backgroundColor: '#F2E0C9' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
+
+          <Box
             sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
+              width: '50px',
+              height: '50px',
+              backgroundImage: `url(${Logo})`,
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'contain',
+              backgroundPosition: 'center',
             }}
-          >
-            LOGO
-          </Typography>
+          />
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
