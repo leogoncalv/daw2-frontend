@@ -28,9 +28,10 @@ function PaginaInicial() {
                     <Typography
                         variant="h4"
                         sx={{
-                            color: '#0000',
-                            fontFamily: 'Arial, sans-serif',
-                            fontWeight: 'bold',
+                            color: '#000000',
+                            fontFamily: 'Arial',
+                            fontSize: '8',
+
                         }}
                     >
                         Explore novas receitas e compartilhe suas experiências!
