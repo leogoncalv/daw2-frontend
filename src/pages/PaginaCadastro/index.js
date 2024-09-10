@@ -2,7 +2,6 @@ import React from "react";
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -17,9 +16,11 @@ function PaginaCadastro() {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         console.log({
+            nome: data.get('nome'),
             email: data.get('email'),
             password: data.get('password'),
         });
+        // Add your form submission logic here (e.g., API call)
     };
 
     return (
@@ -64,7 +65,6 @@ function PaginaCadastro() {
                             label="Email"
                             name="email"
                             autoComplete="email"
-                            autoFocus
                         />
                         <TextField
                             margin="normal"
@@ -84,26 +84,14 @@ function PaginaCadastro() {
                             sx={{
                                 mt: 3,
                                 mb: 2,
-                                backgroundColor: '#F2BE5C', // Cor de fundo do botão
+                                backgroundColor: '#F2BE5C',
                                 '&:hover': {
-                                    backgroundColor: '#F2A13C', // Cor ao passar o mouse
+                                    backgroundColor: '#F2A13C',
                                 }
                             }}
                         >
                             Cadastrar
                         </Button>
-                        <Grid container>
-                            <Grid item xs>
-                                <Link href="#" variant="body2">
-                                    Esqueceu a senha?
-                                </Link>
-                            </Grid>
-                            <Grid item>
-                                <Link href="#" variant="body2">
-                                    Cadastrar
-                                </Link>
-                            </Grid>
-                        </Grid>
                     </Box>
                 </Box>
             </Container>
