@@ -90,7 +90,7 @@ function PaginaCadastro() {
                                 }
                             }}
                         >
-                            Cadastrar
+                            Criar conta
                         </Button>
                     </Box>
                 </Box>

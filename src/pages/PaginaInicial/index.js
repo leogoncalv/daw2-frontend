@@ -2,7 +2,6 @@ import React from "react"
 
 import ImagemPrincipal from "../../Components/ImagemPrincipal";
 import BarraNavegacao from "../../Components/NavBar";
-import BoxPrincipal1 from "../../Components/ImagemPrincipal";
 import { Box } from "@mui/material";
 
 
@@ -13,8 +12,10 @@ function PaginaInicial() {
 
             <BarraNavegacao />
             <ImagemPrincipal>
-                <BoxPrincipal1 />
 
+                <Box>
+                    texto 1
+                </Box>
 
             </ImagemPrincipal>
         </Box>
