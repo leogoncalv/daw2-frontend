@@ -84,9 +84,9 @@ function PaginaCadastro() {
                             sx={{
                                 mt: 3,
                                 mb: 2,
-                                backgroundColor: '#F2BE5C', // Cor de fundo do botão
+                                backgroundColor: '#F2BE5C',
                                 '&:hover': {
-                                    backgroundColor: '#F2A13C', // Cor ao passar o mouse
+                                    backgroundColor: '#F2A13C',
                                 }
                             }}
                         >
