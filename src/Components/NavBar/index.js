@@ -18,7 +18,7 @@ import "./style.css";
 import Logo from "../../assets/images/logo.png"
 
 const pages = ['Início', 'Categorias', 'Favoritos'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Perfil', 'Sair'];
 
 function NavBar() {
 
