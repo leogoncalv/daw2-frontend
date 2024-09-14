@@ -1,7 +1,10 @@
+import { Box } from "@mui/material";
 import axios from "axios";
+import { useEffect } from "react";
+import NavBar from "../Components/NavBar";
 
 const api = axios.create({
-    baseURL: "url-base-de-comunicacao", //http://localhost.1337/api
+    baseURL: "http://localhost.1337/api",
 });
 
 export const createVcNaCozinha = async () => {
@@ -11,3 +14,31 @@ export default {
     createVcNaCozinha
 
 };
+
+
+
+
+
+
+const listaGastos = api.listaGastos;
+console.log(listaGastos);
+
+useEffect(() => {
+    api.listaGastos().then(response) => {
+        console.log { "esses sao os dados");
+console.log(response.data.data)
+
+
+
+
+
+return (
+
+    <Box>
+
+        <NavBar />
+
+    </Box>
+
+    sx =
+)
