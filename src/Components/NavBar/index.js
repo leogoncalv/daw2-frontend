@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -11,21 +11,21 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 
-import Logo from "../../assets/images/logo.png"
+import Logo from "../../assets/images/logo.png";
 
-const pages = ['Início', 'Categorias', 'Favoritos'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = [, 'Categorias', 'Favoritos'];
+const settings = ['Perfil'];
 
-function NavBar() {
-
+function NavBaL() {
   const navigate = useNavigate();
 
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
+  const [profileOpen, setProfileOpen] = useState(false);
+  const [categoriesOpen, setCategoriesOpen] = useState(false);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -33,17 +33,30 @@ function NavBar() {
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
+    setProfileOpen(true);
+  };
+
+  const handleOpenCategoriesMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+    setCategoriesOpen(true);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
+    setCategoriesOpen(false);
   };
 
-  const handleCloseUserMenu = (tipo) => {
+  const handleCloseUserMenu = () => {
     setAnchorElUser(null);
-    if (tipo === "Logout") {
-      navigate("/login");
-    }
+    setProfileOpen(false);
+  };
+
+  const handleLogout = () => {
+    navigate("/login");
+  };
+
+  const handleAddRecipe = () => {
+    console.log("Adicione uma nova receita!");
   };
 
   return (
@@ -98,30 +111,12 @@ function NavBar() {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
-          </Typography>
+
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={page === 'Categorias' ? handleOpenCategoriesMenu : handleCloseNavMenu}
                 sx={{ my: 2, color: 'black', display: 'block' }}
               >
                 {page}
@@ -135,10 +130,75 @@ function NavBar() {
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
+
+            {profileOpen && (
+              <Box
+                sx={{
+                  position: 'absolute',
+                  top: '60px',
+                  right: '20px',
+                  width: '300px',
+                  backgroundColor: '#FFF',
+                  boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
+                  borderRadius: '8px',
+                  padding: '16px',
+                  zIndex: 10,
+                }}
+              >
+                <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
+                  <Avatar alt="Letícia" src="/static/images/avatar/2.jpg" sx={{ width: 80, height: 80 }} />
+                </Box>
+                <Typography variant="h6" align="center">LETÍCIA</Typography>
+                <Typography variant="body2" align="center">@marialeticia11</Typography>
+                <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 2 }}>
+                  <Button
+                    variant="contained"
+                    sx={{
+                      backgroundColor: '#F2BE5C',
+                      color: '#000',
+                      width: '100%',
+                      mb: 1,
+                    }}
+                  >
+                    minhas receitas
+                  </Button>
+                  <Button
+                    variant="contained"
+                    sx={{
+                      backgroundColor: '#F2BE5C',
+                      color: '#000',
+                      width: '100%',
+                      mb: 1,
+                    }}
+                  >
+                    editar perfil
+                  </Button>
+                  <Button
+                    onClick={handleAddRecipe}
+                    variant="contained"
+                    sx={{
+                      backgroundColor: '#F2BE5C',
+                      color: '#FFF',
+                      width: '40px',
+                      height: '40px',
+                      borderRadius: '50%',
+                      minWidth: 'unset',
+                      mb: 1,
+                    }}
+                  >
+                    +
+                  </Button>
+                  <Typography variant="body2" align="center" sx={{ mt: 2 }}>
+                    0 Receitas
+                  </Typography>
+                </Box>
+              </Box>
+            )}
+
             <Menu
               sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
+              id="menu-categories"
+              anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: 'top',
                 horizontal: 'right',
@@ -148,14 +208,24 @@ function NavBar() {
                 vertical: 'top',
                 horizontal: 'right',
               }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
+              open={categoriesOpen}
+              onClose={handleCloseNavMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={() => { handleCloseUserMenu(setting) }}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
+              <Box sx={{
+                padding: '16px',
+                minWidth: '200px',
+                backgroundColor: '#F2BE5C',
+                boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
+                borderRadius: '8px',
+              }}>
+                <MenuItem onClick={handleCloseNavMenu}>Airfryer</MenuItem>
+                <MenuItem onClick={handleCloseNavMenu}>Drinks e bebidas</MenuItem>
+                <MenuItem onClick={handleCloseNavMenu}>Doces e sobremesas</MenuItem>
+                <MenuItem onClick={handleCloseNavMenu}>Geleias</MenuItem>
+                <MenuItem onClick={handleCloseNavMenu}>Molhos</MenuItem>
+                <MenuItem onClick={handleCloseNavMenu}>Saladas</MenuItem>
+                <MenuItem onClick={handleCloseNavMenu}>Tortas e bolos</MenuItem>
+              </Box>
             </Menu>
           </Box>
         </Toolbar>
@@ -164,4 +234,4 @@ function NavBar() {
   );
 }
 
-export default NavBar;
+export default NavBaL;
