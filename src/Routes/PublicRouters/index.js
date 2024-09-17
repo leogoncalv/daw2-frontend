@@ -6,14 +6,14 @@ const PublicRouters = {
     children: [
         {
             path: 'cadastro',
-            element: <PaginaCadastro/>
+            element: <PaginaCadastro />
         },
         {
             path: 'login',
-            element: <PaginaLogin/>
+            element: <PaginaLogin />
         }
     ]
 
-    }
+}
 
 export default PublicRouters;

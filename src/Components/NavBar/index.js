@@ -16,10 +16,10 @@ import "./style.css";
 
 import Logo from "../../assets/images/logo.png";
 
-const pages = [, 'Categorias', 'Favoritos'];
+const pages = ['Categorias', 'Favoritos'];
 const settings = ['Perfil'];
 
-function NavBaL() {
+function NavBar() { // Renomeado de NavBaL para NavBar
   const navigate = useNavigate();
 
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -78,7 +78,7 @@ function NavBaL() {
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
-              aria-label="account of current user"
+              aria-label="menu"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
@@ -127,7 +127,7 @@ function NavBaL() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="User Profile" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
 
@@ -234,4 +234,4 @@ function NavBaL() {
   );
 }
 
-export default NavBaL;
+export default NavBar;

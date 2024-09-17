@@ -8,10 +8,21 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Logo from "../../assets/images/logo.png";
+import { useAuth } from "../../security/AuthProvider";
+
+
 
 const defaultTheme = createTheme();
 
 function PaginaLogin() {
+
+    function fazerlogin = () => {
+        const { login } = useAuth();
+
+        login
+        navigate("/inicio")
+
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -70,6 +81,7 @@ function PaginaLogin() {
                             type="submit"
                             fullWidth
                             variant="contained"
+                            onClick={() => { fazerlogin() }}
                             sx={{
                                 mt: 3,
                                 mb: 2,
@@ -80,6 +92,7 @@ function PaginaLogin() {
                             }}
                         >
                             Entrar
+
                         </Button>
                         <Grid container spacing={2}>
                             <Grid item xs>
