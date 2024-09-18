@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -7,18 +7,42 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Figura from "../../assets/images/mascote.png";
+import api from "../../services/api"
+
+import { useNavigate } from "react-router-dom";
 
 const defaultTheme = createTheme();
 
 function PaginaCadastro() {
 
+    const [email, setEmail] = useState("leogoncalv@user.com");
+    const [senha, setSenha] = useState("123456789");
+    const [user, setUser] = useState("leogoncalv");
+    const [nome, setNome] = useState("leo goncalves");
+
+    const navigate = useNavigate();
+
+    const fazerCadastro = () => {
+        if (email.trim() !== "" && senha.trim() !== "" && user.trim() !== "" && nome.trim() !== "") {
+            api.login({
+                identifier: email,
+                password: senha,
+                nome: nome,
+                user: user
+            })
+                .then(response => {
+                    console.log(response.data.jwt);
+                    navigate("/login");
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        }
+    };
+
     const handleSubmit = (event) => {
         event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
+        fazerCadastro();
     };
 
     return (
@@ -53,6 +77,8 @@ function PaginaCadastro() {
                             id="nome"
                             label="Nome"
                             name="nome"
+                            value={nome}
+                            onChange={(e) => setNome(e.target.value)}
                             autoFocus
                         />
                         <TextField
@@ -62,8 +88,9 @@ function PaginaCadastro() {
                             id="email"
                             label="Email"
                             name="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                             autoComplete="email"
-                            autoFocus
                         />
                         <TextField
                             margin="normal"
@@ -73,6 +100,8 @@ function PaginaCadastro() {
                             label="Senha"
                             type="password"
                             id="password"
+                            value={senha}
+                            onChange={(e) => setSenha(e.target.value)}
                             autoComplete="current-password"
                         />
 

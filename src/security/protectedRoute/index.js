@@ -3,9 +3,9 @@ import { Navigate } from "react-router-dom";
 import { useAuth } from "../AuthProvider";
 
 const ProtectedRoute = ({ element }) => {
-    const { isAuthenticated } = useAuth();
+    const { token } = useAuth();
 
-    return isAuthenticated ? element : < Navigate to="/login" />;
+    return token ? element : < Navigate to="/login" />;
 
 };
 

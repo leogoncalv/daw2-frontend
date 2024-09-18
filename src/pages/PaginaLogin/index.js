@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -8,21 +8,41 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Logo from "../../assets/images/logo.png";
+
 import { useAuth } from "../../security/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
-
+import api from "../../services/api";
 
 const defaultTheme = createTheme();
 
 function PaginaLogin() {
 
-    function fazerlogin = () => {
-        const { login } = useAuth();
+    const [email, setEmail] = useState("leogoncalv@user.com");
+    const [senha, setSenha] = useState("123456789");
 
-        login
-        navigate("/inicio")
+    const navigate = useNavigate();
+    const { login } = useAuth();
 
-    }
+    const fazerlogin = () => {
+        if (email.trim() !== "" && senha.trim() !== "") {
+
+            api.login({
+                identifier: email,
+                password: senha,
+
+            })
+                .then(response => {
+                    console.log(response.data.jwt);
+                    navigate("/inicio");
+
+                })
+                .catch(error => {
+                    console.log(error);
+
+                });
+        }
+    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -31,6 +51,8 @@ function PaginaLogin() {
             email: data.get('email'),
             password: data.get('password'),
         });
+
+        fazerlogin();
     };
 
     return (
@@ -66,6 +88,8 @@ function PaginaLogin() {
                             name="email"
                             autoComplete="email"
                             autoFocus
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                         />
                         <TextField
                             margin="normal"
@@ -76,12 +100,13 @@ function PaginaLogin() {
                             type="password"
                             id="password"
                             autoComplete="current-password"
+                            value={senha}
+                            onChange={(e) => setSenha(e.target.value)}
                         />
                         <Button
                             type="submit"
                             fullWidth
                             variant="contained"
-                            onClick={() => { fazerlogin() }}
                             sx={{
                                 mt: 3,
                                 mb: 2,

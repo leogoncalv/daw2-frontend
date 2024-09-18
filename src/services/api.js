@@ -1,44 +1,29 @@
-import { Box } from "@mui/material";
 import axios from "axios";
-import { useEffect } from "react";
-import NavBar from "../Components/NavBar";
 
 const api = axios.create({
-    baseURL: "http://localhost.1337/api",
+    baseURL: "http://localhost:1337/api",
 });
 
-export const createVcNaCozinha = async () => {
-    return await api.post("url-base-de-comunicacao", Colecoes do back);
+export const createReceita = async (receitaData) => {
+    return await api.post("/receitas", receitaData);
 };
+
+export const login = async (loginData) => {
+    return await api.post("/auth/local", loginData);
+};
+
+export const createUsuario = async (usuarioData) => {
+    return await api.post("/user", usuarioData);
+};
+
+
 export default {
-    createVcNaCozinha
+    createReceita,
+    login,
+    createUsuario
 
 };
 
 
 
 
-
-
-const listaGastos = api.listaGastos;
-console.log(listaGastos);
-
-useEffect(() => {
-    api.listaGastos().then(response) => {
-        console.log { "esses sao os dados");
-console.log(response.data.data)
-
-
-
-
-
-return (
-
-    <Box>
-
-        <NavBar />
-
-    </Box>
-
-    sx =
-)

@@ -19,7 +19,7 @@ import Logo from "../../assets/images/logo.png";
 const pages = ['Categorias', 'Favoritos'];
 const settings = ['Perfil'];
 
-function NavBar() { // Renomeado de NavBaL para NavBar
+function NavBar() {
   const navigate = useNavigate();
 
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -146,10 +146,10 @@ function NavBar() { // Renomeado de NavBaL para NavBar
                 }}
               >
                 <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
-                  <Avatar alt="Letícia" src="/static/images/avatar/2.jpg" sx={{ width: 80, height: 80 }} />
+                  <Avatar alt="Leo" src="/static/images/avatar/2.jpg" sx={{ width: 80, height: 80 }} />
                 </Box>
-                <Typography variant="h6" align="center">LETÍCIA</Typography>
-                <Typography variant="body2" align="center">@marialeticia11</Typography>
+                <Typography variant="h6" align="center" sx={{ color: '#000000' }}>LEO</Typography>
+                <Typography variant="body2" align="center" sx={{ color: '#000000' }}>@leogoncalv</Typography>
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 2 }}>
                   <Button
                     variant="contained"
